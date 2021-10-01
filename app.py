@@ -46,12 +46,20 @@ def paging():
 def search():
     model = request.args.get('model')
     response = []
+    print(model, 'model')
     if not model:
         response = entities
     else:
+        model_list = model.split()
+        print(model_list,'model_list')
         for e in entities:
             if e["model"] == model:
                 response.append(e)
+            elif e["model"] == model_list[0]:
+                response.append(e)
+            elif len(model_list) > 1:
+                if e["model"] == model_list[1]:
+                    response.append(e)
     return render_template("search_ause.html", entities=response)
 
 
