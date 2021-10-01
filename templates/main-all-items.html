@@ -34,8 +34,14 @@
             <p class="item__price">{{ e.price }}</p>
           </a>
         </div>
+
         {% endfor %}
       </div>
+      <div id="pagination">
+          {% for i in range(1,number_of_pages) %}
+        <a href="?page={{ i }}" class = 'page_number'>{{ i }}</a>
+        {% endfor %}
+        </div>
     </section>
   </main>
 </body>
